@@ -1,0 +1,1 @@
+# spartaCoreProject-1
