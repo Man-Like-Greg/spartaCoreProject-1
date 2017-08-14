@@ -20,3 +20,16 @@
 	text-align:center;
 	box-shadow: 3px 3px 5px grey;
 }
+#gameButtons {
+    display: block;
+    margin: 20px;
+    text-align: center;
+}
+
+#gameButtons .button {
+    background-color: lightblue;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 30px;
+    margin: 30px;
+}

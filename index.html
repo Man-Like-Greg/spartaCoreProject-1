@@ -3,6 +3,10 @@
 <head>
 <script></script>
 <link rel="stylesheet" type="text/css"  href="style.css">
+<!-- <script
+    src="http://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script> -->
 <script src="Main.js" async></script>
 <title>Memory Game</title>
 </head>
@@ -10,8 +14,21 @@
 <div id="memoryBoard"></div>
 <div id="score">
   <h2>Score</h2>
-  <p>Pairs Clicked: <span id="pairs_clicked">0</span></p>
-  <p>Pairs Guessed: <span id="pairs_guessed">0</span></p>
+  <span id="gameButtons">
+      	<span class="button">
+            Clicks:  <span id="counter"> 0</span>
+        </span>
+        <span class="button">
+  			Pairs Guessed: <span id="pairs_guessed">0</span>
+  		</span>
+  		<span class="button">
+  			Time: <span id="timer">5:00</span>
+  		</span>
 </div>
 </body>
 </html>
+<!-- <div id ="gameBoard">
+		<span id="gameButtons">
+          	<span class="button">
+                <span id="counter">0</span> Clicks
+            </span> -->

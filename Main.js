@@ -1,9 +1,12 @@
-// varibles 
 
+// varibles 
 var memoryArray = ['A','A','B','B'];
 var memoryValues = [];
 var memoryBoxIds = [];
 var boxesFlipped = 0;
+var counter = 0;
+
+
 // shuffle function
 Array.prototype.memoryBoxShuffle = function() {
     var i = this.length, j, temp;
@@ -14,6 +17,14 @@ Array.prototype.memoryBoxShuffle = function() {
         this[i] = temp;
     }
 }
+// setting the counter 
+// var counter = document.getElementById('pairs_clicked'),
+//   count = 0;
+// counter.onclick = function() {
+//   count += 1;
+//   counter.innerHTML = "Click me: " + count;
+// };
+
 // //setting the timer
 // function countDown(secs,elem) {
 // 	var element = document.getElementById(elem);
@@ -62,7 +73,7 @@ function memoryFlipBox(box,val) {
 				}
 			} else {
 				function flip2Back() {
-				    // Flip the 2 tiles back over
+				    // Flip the 2 boxes back over
 				    var box_1 = document.getElementById(memoryBoxIds[0]);
 				    var box_2 = document.getElementById(memoryBoxIds[1]);
 				    box_1.style.background = '#CCC';
