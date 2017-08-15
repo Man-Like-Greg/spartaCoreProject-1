@@ -1,0 +1,105 @@
+
+h1 {
+	text-align: center;
+	font-size: 40px;
+	font-family: Arial;
+}
+
+h3 {
+	text-align: center;
+	font-family: Arial;
+}
+
+/*.base{
+	height: 700px;
+	width: 700px;
+	background-color: white;
+	margin: 0 auto;
+	background-image: url(../images/.jpg);
+	background-repeat: no-repeat;
+	background-size: 700px;
+}*/
+/*
+.rules {
+  background-color: lightblue;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 30px;
+}
+
+.rules p {
+	padding: 20px 20px 0px 30px;
+  font-size: 18px;
+  font-family: Arial;
+}*/
+
+#memoryBoard {
+	height: 800px;
+	width: 701px;
+	background-color: lightblue;
+	margin: 0 auto;
+}
+
+#grids{
+	height: 710px;
+	width: 701px;
+	background-color: lightblue;
+	margin: 0 auto;
+}
+
+#grids div {
+	vertical-align: top;
+	background-color: white;
+	display: inline-block;
+	height: 150px;
+	width: 150px;
+	border: solid black 2px;
+	margin: 5px;
+	padding: 5px;
+	background-size: 150px;
+	cursor: pointer;
+	/*border-radius: 20px;*/
+	box-shadow: 3px 3px 5px grey;
+}
+
+#startGame1 {
+	background-color: lightblue;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 20px;
+  font-family: Arial;
+  text-align: center;
+  display: block;
+  margin-right: 700px;
+}
+
+#scores {
+  display: block;
+  margin: 100px;
+  text-align: center;
+}
+
+#span .button {
+	cursor: pointer;
+  padding: 10px 30px;
+  border: 10px;
+}
+
+#scores .button {
+  background-color: green;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 30px;
+}
+
+.selected img {
+	opacity: 1; 
+}
+
+.link {
+	text-decoration: none;
+	color: black;
+	font-size: 25px;
+}
