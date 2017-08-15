@@ -1,92 +1,137 @@
+$(function () {
+	// 
+	var arrayOfImages = ['images/Thierry-Henry.jpg','images/lionel-messi.jpg','images/Thierry-Henry.jpg','images/lionel-messi.jpg'];
+	var $reset = $('#reset')
+	// find the memory board
+	var $memoryBoard = $('#memoryBoard');
+	// find the scores
+	var $scores = $('#scores');
+	// find the grid
+	var $grids = $('#grids');
+	// find click counter
+	var $counter = $('#counter');
+	// find once box selected
+	var $selected = $('.selected');
+	// find the first game selection
+	var $startGame1 = $('#startGame1');
+	// find the introduction 
+	var $scenario = $('#scenario');
+	var counter = 0;
 
-// varibles 
-var memoryArray = ['A','A','B','B'];
-var memoryValues = [];
-var memoryBoxIds = [];
-var boxesFlipped = 0;
-var counter = 0;
+	var seconds = 20;
 
-
-// shuffle function
-Array.prototype.memoryBoxShuffle = function() {
-    var i = this.length, j, temp;
-    while(--i > 0){
-        j = Math.floor(Math.random() * (i+1));
-        temp = this[j];
-        this[j] = this[i];
-        this[i] = temp;
-    }
+function countDown(){
+  if (seconds > 0){
+    var $theTimer = $('#timer');
+    seconds--;
+    $theTimer.html("Time: " + seconds);
+  }
+  
 }
-// setting the counter 
-// var counter = document.getElementById('pairs_clicked'),
-//   count = 0;
-// counter.onclick = function() {
-//   count += 1;
-//   counter.innerHTML = "Click me: " + count;
-// };
 
-// //setting the timer
-// function countDown(secs,elem) {
-// 	var element = document.getElementById(elem);
-// 	element.innerHTML = "Please wait for "+secs+" seconds";
-// 	if(secs < 1) {
-// 		clearTimeout(timer);
-// 		element.innerHTML = '<h2>Countdown Complete!</h2>';
-// 		element.innerHTML += '<a href="#">Click here now</a>';
-// 	}
-// 	secs--;
-// 	var timer = setTimeout('countDown('+secs+',"'+elem+'")',1000);
-// }
-// countDown(10,"status");
-
-// function for new board
-function newBoard() {
-	boxesFlipped = 0;
-	var output = '';
-    memoryArray.memoryBoxShuffle();
-	for(var i = 0; i < memoryArray.length; i++){
-		output += '<div id="tile_'+ i +'" onclick="memoryFlipBox(this,\''+ memoryArray[i] +'\')"></div>';
-	}
-	document.getElementById('memoryBoard').innerHTML = output;
+function startTimer(){
+  setInterval(countDown, 1000);
 }
-// function to flip the boxes 
-function memoryFlipBox(box,val) {
-	if(box.innerHTML == "" && memoryValues.length < 2){
-		box.style.background = '#FFF'; // make the background white
-		box.innerHTML = val;
-		if(memoryValues.length == 0) {
-			memoryValues.push(val);
-			memoryBoxIds.push(box.id);
-		} else if(memoryValues.length == 1){
-			memoryValues.push(val);
-			memoryBoxIds.push(box.id);
-			if(memoryValues[0] == memoryValues[1]) {
-				boxesFlipped += 2;
-				// Clear both arrays
-				memoryValues = [];
-            	memoryBoxIds = [];
-				// Check to see if the whole board is cleared
-				if(boxesFlipped == memoryArray.length) {
-					console.log("Game Completed... generating new board");
-					document.getElementById('memoryBoard').innerHTML = "";
-					newBoard();
-				}
-			} else {
-				function flip2Back() {
-				    // Flip the 2 boxes back over
-				    var box_1 = document.getElementById(memoryBoxIds[0]);
-				    var box_2 = document.getElementById(memoryBoxIds[1]);
-				    box_1.style.background = '#CCC';
-            	    box_1.innerHTML = "";
-				    box_2.style.background = '#CCC';
-            	    box_2.innerHTML = "";
-				    // Clear both arrays
-				    memoryValues = [];
-            	    memoryBoxIds = [];
-				}
-				setTimeout(flip2Back, 700);
-			}
+
+startTimer();
+
+
+	$reset.hide();
+	$scores.hide();
+	// start the game
+	$startGame1.click(function(event) {
+  counter = 0;
+  $counter.html(counter);
+
+	$scenario.slideUp();
+	$scores.show();
+	$reset.show();
+		
+	$('#grids').html("");
+	createNewBoard();
+
+	});
+
+
+	$('#grids').on('click', 'div', function(event) {
+		if (!$(this).hasClass('match')) {
+			$(this).addClass('selected');
+			$(this).children().show();
 		}
-	}
-}
-newBoard();
+		displayBox();
+		
+		});
+	// shuffle function for any array this is called upon
+	function shuffle(array) {
+  		var currentIndex = array.length, tempValue, randomIndex;
+  		while (0 !== currentIndex) {
+    		randomIndex = Math.floor(Math.random() * currentIndex);
+    		currentIndex -= 1;
+
+		    tempValue = array[currentIndex]; // take the current index and adds it to an array
+		    array[currentIndex] = array[randomIndex]; //then takes the current index array and makes it the random index
+		    array[randomIndex] = tempValue; // which then is added back into the temporary value
+		}
+		  return array;
+	} 
+	// creating a new board using the shuffle function
+	function createNewBoard () {
+		shuffle(arrayOfImages);
+	  	for (var i = 0; i < arrayOfImages.length; i++) {
+        output = "<div id=box" + i + "><img src='" + arrayOfImages[i] + "'/></div>"
+        $grids.append(output);
+    	}
+	    $('div img').hide();
+  	} 
+  	// show the box
+  	function displayBox (){
+  		var $selected = $('.selected');
+  		var $match = $('.match');
+
+  		counter = counter + 1;
+      $counter.html(counter);
+
+  		if($selected.length === 2) {
+
+  			var src1 = $selected.eq(1).find('img').attr('src');
+  			var src2 = $selected.eq(0).find('img').attr('src');
+
+  			if (src1 === src2) {
+  				$selected.removeClass('selected');
+  				$selected.addClass('match');
+
+  				if($('.match').length === 4) {
+  					winner();
+  				}
+
+  			} else {
+  				$selected.removeClass('selected');
+				
+				setTimeout(function() {
+					$selected.find('img').fadeOut();
+				}, 1000);
+  				
+  			}  		
+    	}
+    }
+  // when the user wins   
+	function winner () {
+		
+		setTimeout(function(){
+			var $scores = $('#scores');
+			$scores.fadeOut();
+  			$('#grids div').fadeOut();			
+  		}, 2000);
+  	setTimeout(function (){
+			var winMessage = 
+			'<p class="winningMessage"><strong>Congratulations!</strong></p><p>You completed this in ' + counter + ' clicks.</p>'
+			$('#scenario').fadeIn();
+			$('#startGame1').html('<a class="link" href="index.html">Play again?</a>');
+			$('.rules').html
+			(winMessage).addClass('winningMessage');
+		}, 3000);		
+	}			
+
+
+});
+

@@ -2,33 +2,39 @@
 <html>
 <head>
 <script></script>
-<link rel="stylesheet" type="text/css"  href="style.css">
-<!-- <script
+<script
     src="http://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-    crossorigin="anonymous"></script> -->
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css"  href="style.css">
 <script src="Main.js" async></script>
 <title>Memory Game</title>
 </head>
 <body>
-<div id="memoryBoard"></div>
-<div id="score">
-  <h2>Score</h2>
-  <span id="gameButtons">
-      	<span class="button">
-            Clicks:  <span id="counter"> 0</span>
-        </span>
-        <span class="button">
-  			Pairs Guessed: <span id="pairs_guessed">0</span>
-  		</span>
-  		<span class="button">
-  			Time: <span id="timer">5:00</span>
-  		</span>
+<header>
+    <h1> Test you memory skill </h1>
+  </header>
+  <div id="scenario" class="base">
+    <div class="rules">
+    </div>
+      <div id="startGame1" class="link">Football Players</div>
+  </div>
+  <div id ="memoryBoard">
+  <span class="button">
+    <a id="reset" class="link" href="index.html">X</a>
+  </span>
+  <span id="scores">
+    <span class="button">
+      <span id="counter">0</span> Clicks
+    </span>
+      <span class="button">
+        <span id="timer">Timer</span>
+     </span>
+     <span class="button">
+        <span id="paired">Pairs Made:</span>
+     </span>
+    </span>
+  <div id="grids"></div>
 </div>
 </body>
 </html>
-<!-- <div id ="gameBoard">
-		<span id="gameButtons">
-          	<span class="button">
-                <span id="counter">0</span> Clicks
-            </span> -->
