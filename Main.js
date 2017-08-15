@@ -1,5 +1,4 @@
 $(function () {
-	// 
 	var arrayOfImages = ['images/Thierry-Henry.jpg','images/lionel-messi.jpg','images/Thierry-Henry.jpg','images/lionel-messi.jpg'];
 	var $reset = $('#reset')
 	// find the memory board
@@ -51,7 +50,6 @@ $(function () {
 		
 	$('#grids').html("");
 	createNewBoard();
-
 	});
 
 	// if statement to allow matching the grids
@@ -65,59 +63,59 @@ $(function () {
 		});
 	// shuffle function for any array this is called upon
 	function shuffle(array) {
-  		var currentIndex = array.length, tempValue, randomIndex;
-  		while (0 !== currentIndex) {
-    		randomIndex = Math.floor(Math.random() * currentIndex);
-    		currentIndex -= 1;
+  	var currentIndex = array.length, tempValue, randomIndex;
+		
+		while (0 !== currentIndex) {
+  		randomIndex = Math.floor(Math.random() * currentIndex);
+  		currentIndex -= 1;
 
-		    tempValue = array[currentIndex]; // take the current index and adds it to an array
-		    array[currentIndex] = array[randomIndex]; //then takes the current index array and makes it the random index
-		    array[randomIndex] = tempValue; // which then is added back into the temporary value
+	    tempValue = array[currentIndex]; // take the current index and adds it to an array
+	    array[currentIndex] = array[randomIndex]; //then takes the current index array and makes it the random index
+	    array[randomIndex] = tempValue; // which then is added back into the temporary value
 		}
-		  return array;
+		return array;
 	} 
 	// creating a new board using the shuffle function
 	function createNewBoard () {
 		shuffle(arrayOfImages);
 
-	  	for (var i = 0; i < arrayOfImages.length; i++) {
-        output = "<div id=box" + i + "><img src='" + arrayOfImages[i] + "'/></div>"
-        $grids.append(output);
-    	}
+  	for (var i = 0; i < arrayOfImages.length; i++) {
+      output = "<div id=box" + i + "><img src='" + arrayOfImages[i] + "'/></div>"
+      $grids.append(output);
+  	}
 
-	    $('div img').hide();
-  	} 
+		$('div img').hide();
+  } 
   	// show the box
-  	function displayBox (){
-  		var $selected = $('.selected');
-  		var $match = $('.match');
+	function displayBox (){
+		var $selected = $('.selected');
+		var $match = $('.match');
 
-  		counter = counter + 1;
-      $counter.html(counter);
+		counter = counter + 1;
+    $counter.html(counter);
 
-  		if($selected.length === 2) {
+		if($selected.length === 2) {
 
-  			var src1 = $selected.eq(1).find('img').attr('src');
-  			var src2 = $selected.eq(0).find('img').attr('src');
+			var src1 = $selected.eq(1).find('img').attr('src');
+			var src2 = $selected.eq(0).find('img').attr('src');
 
-  			if (src1 === src2) {
-  				$selected.removeClass('selected');
-  				$selected.addClass('match');
+			if (src1 === src2) {
+				$selected.removeClass('selected');
+				$selected.addClass('match');
 
-  				if($('.match').length === 4) {
-  					winner();
-  				}
+				if($('.match').length === 4) {
+					winner();
+				}
 
-  			} else {
-  				$selected.removeClass('selected');
+			} else {
+				$selected.removeClass('selected');
 				
 				setTimeout(function() {
 					$selected.find('img').fadeOut();
-				}, 1000);
-  				
-  			}  		
-    	}
-    }
+				}, 1000);	
+			}  		
+  	}
+  }
 
   // when the timer runs out function
   function loser() {
@@ -125,8 +123,8 @@ $(function () {
   	setTimeout(function() {
 			var $scores = $('#scores');
 			$scores.fadeOut();
-  			$('#grids div').fadeOut();			
-  		}, 500);
+  		$('#grids div').fadeOut();			
+  	}, 500);
   	
   	setTimeout(function () {
 			var loseMessage = 
@@ -144,8 +142,8 @@ $(function () {
 		setTimeout(function() {
 			var $scores = $('#scores');
 			$scores.fadeOut();
-  			$('#grids div').fadeOut();			
-  		}, 2000);
+  		$('#grids div').fadeOut();			
+  	}, 2000);
   	
   	setTimeout(function () {
 			var winMessage = 
