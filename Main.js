@@ -1,5 +1,7 @@
 $(function () {
-	var arrayOfImages = ['images/Thierry-Henry.jpg','images/lionel-messi.jpg','images/Thierry-Henry.jpg','images/lionel-messi.jpg'];
+	var arrayOfImages = ['images/Thierry-Henry.jpg','images/lionel-messi.jpg',
+	'images/Thierry-Henry.jpg','images/lionel-messi.jpg','images/david.jpg',
+	'images/ronaldo.jpg','images/david.jpg','images/ronaldo.jpg','images/Minionspic.jpeg'];
 	// find reset
 	var $reset = $('#reset')
 	// find the memory board
@@ -21,7 +23,7 @@ $(function () {
 	var counter = 0;
 	var pairs = 0;
 	// getting the seconds
-	var seconds = 10;
+	var seconds = 50;
 	var inteval;
 
 	$reset.hide();
@@ -60,7 +62,7 @@ $(function () {
 	  	// clear the inteval
 	  	clearInterval(inteval);
 	  	//set the seconds back to original
-	  	seconds = 10;
+	  	seconds = 50;
   		loser();
 	  }  
 	}
@@ -107,13 +109,17 @@ $(function () {
 			var src1 = $selected.eq(1).find('img').attr('src');
 			var src2 = $selected.eq(0).find('img').attr('src');
 
+			// if (src1 || src2 = Minionspic.jpeg) {
+			// 	loser();
+			// }
+
 			if (src1 === src2) {
 				$selected.removeClass('selected');
 				$selected.addClass('match');
 				pairs = pairs + 1;
 				$paired.html("Matched: " +pairs);
 
-				if($('.match').length === 4) {
+				if($('.match').length === 12) {
 					winner();
 				}
 
