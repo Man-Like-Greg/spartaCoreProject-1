@@ -23,7 +23,7 @@ $(function () {
 	var counter = 0;
 	var pairs = 0;
 	// getting the seconds
-	var seconds = 50;
+	var seconds = 10;
 	var inteval;
 
 	$reset.hide();
@@ -34,7 +34,7 @@ $(function () {
 		$startGame1.click(function(event) {
 		  counter = 0;
 		  $counter.html(counter);
-			$scenario.slideUp();
+			$scenario.fadeIn();
 			$scores.show();
 			$reset.show();
 
