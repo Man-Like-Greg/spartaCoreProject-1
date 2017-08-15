@@ -21,48 +21,54 @@ $(function () {
 	var counter = 0;
 	var pairs = 0;
 	// getting the seconds
-	var seconds = 60;
+	var seconds = 10;
+	var inteval;
 
 	$reset.hide();
 	$scores.hide();
+
+	function setUpEventListeners() {
+		// start the game
+		$startGame1.click(function(event) {
+		  counter = 0;
+		  $counter.html(counter);
+			$scenario.slideUp();
+			$scores.show();
+			$reset.show();
+
+			$('#grids').html("");
+			startTimer();
+			createNewBoard();
+		});
+
+	// if statement to allow matching the grids
+		$('#grids').on('click', 'div', function(event) {
+			if (!$(this).hasClass('match')) {
+				$(this).addClass('selected');
+				$(this).children().show();
+			}
+			displayBox();
+		});
+	}
 
 	function countDown() {
 	  if (seconds > 0){
 	    var $theTimer = $('#timer');
 	    seconds--;
 	    $theTimer.html("Time: " + seconds);
-	  } 
-		else {
-  		seconds === 0
+	  } else {
+	  	// clear the inteval
+	  	clearInterval(inteval);
+	  	//set the seconds back to original
+	  	seconds = 10;
   		loser();
 	  }  
 	}
 
 	function startTimer() {
-	  setInterval(countDown, 1000);
+	  inteval = setInterval(countDown, 1000);
 	}
-	// start the game
-	$startGame1.click(function(event) {
-	  counter = 0;
-	  $counter.html(counter);
-		$scenario.slideUp();
-		$scores.show();
-		$reset.show();
 
-		$('#grids').html("");
-		startTimer();
-		createNewBoard();
-	});
-
-	// if statement to allow matching the grids
-	$('#grids').on('click', 'div', function(event) {
-		if (!$(this).hasClass('match')) {
-			$(this).addClass('selected');
-			$(this).children().show();
-		}
-		displayBox();
-		
-		});
 	// shuffle function for any array this is called upon
 	function shuffle(array) {
   	var currentIndex = array.length, tempValue, randomIndex;
@@ -142,6 +148,7 @@ $(function () {
   // when the user wins   
 	function winner() {
 		var $theTimer = $('#timer');
+		$theTimer.off();
 
 		setTimeout(function() {
 			var $scores = $('#scores');
@@ -156,7 +163,9 @@ $(function () {
 			$('#startGame1').html('<a class="link" href="index.html">Play again?</a>');
 			$('.rules').html(winMessage).addClass('winningMessage');
 		}, 2000);		
-	}			
+	}	
+
+	setUpEventListeners();		
 
 });
 
