@@ -20,6 +20,8 @@ $(function () {
 	var $scenario = $('#scenario');
 	// find paired
 	var $paired = $('#paired');
+	// find leader board
+	var $leaderBoard = $('#leaderBoard')
 	var counter = 0;
 	var pairs = 0;
 	// getting the seconds
@@ -29,12 +31,13 @@ $(function () {
 	$reset.hide();
 	$scores.hide();
 
+
 	function setUpEventListeners() {
 		// start the game
 		$startGame1.click(function(event) {
 		  counter = 0;
 		  $counter.html(counter);
-			$scenario.fadeIn();
+			$scenario.slideUp();
 			$scores.show();
 			$reset.show();
 
@@ -42,6 +45,11 @@ $(function () {
 			startTimer();
 			createNewBoard();
 		});
+
+		$leaderBoard.click(function(event) {
+			$scenario.slideUp();
+			$('#grids').html(" who is in the lead");
+		})
 
 	// if statement to allow matching the grids
 		$('#grids').on('click', 'div', function(event) {
