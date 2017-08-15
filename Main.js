@@ -1,5 +1,6 @@
 $(function () {
 	var arrayOfImages = ['images/Thierry-Henry.jpg','images/lionel-messi.jpg','images/Thierry-Henry.jpg','images/lionel-messi.jpg'];
+	// find reset
 	var $reset = $('#reset')
 	// find the memory board
 	var $memoryBoard = $('#memoryBoard');
@@ -15,11 +16,12 @@ $(function () {
 	var $startGame1 = $('#startGame1');
 	// find the introduction 
 	var $scenario = $('#scenario');
+	// find paired
+	var $paired = $('#paired');
 	var counter = 0;
+	var pairs = 0;
 	// getting the seconds
-	var seconds = 20;
-
-	startTimer();
+	var seconds = 60;
 
 	$reset.hide();
 	$scores.hide();
@@ -41,15 +43,15 @@ $(function () {
 	}
 	// start the game
 	$startGame1.click(function(event) {
-  counter = 0;
-  $counter.html(counter);
+	  counter = 0;
+	  $counter.html(counter);
+		$scenario.slideUp();
+		$scores.show();
+		$reset.show();
 
-	$scenario.slideUp();
-	$scores.show();
-	$reset.show();
-		
-	$('#grids').html("");
-	createNewBoard();
+		$('#grids').html("");
+		startTimer();
+		createNewBoard();
 	});
 
 	// if statement to allow matching the grids
@@ -102,6 +104,8 @@ $(function () {
 			if (src1 === src2) {
 				$selected.removeClass('selected');
 				$selected.addClass('match');
+				pairs = pairs + 1;
+				$paired.html("Matched: " +pairs);
 
 				if($('.match').length === 4) {
 					winner();
@@ -143,7 +147,7 @@ $(function () {
 			var $scores = $('#scores');
 			$scores.fadeOut();
   		$('#grids div').fadeOut();			
-  	}, 2000);
+  	}, 1000);
   	
   	setTimeout(function () {
 			var winMessage = 
@@ -151,7 +155,7 @@ $(function () {
 			$('#scenario').fadeIn();
 			$('#startGame1').html('<a class="link" href="index.html">Play again?</a>');
 			$('.rules').html(winMessage).addClass('winningMessage');
-		}, 3000);		
+		}, 2000);		
 	}			
 
 });
