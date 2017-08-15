@@ -17,27 +17,29 @@ $(function () {
 	// find the introduction 
 	var $scenario = $('#scenario');
 	var counter = 0;
-
+	// getting the seconds
 	var seconds = 20;
 
-function countDown(){
-  if (seconds > 0){
-    var $theTimer = $('#timer');
-    seconds--;
-    $theTimer.html("Time: " + seconds);
-  }
-  
-}
-
-function startTimer(){
-  setInterval(countDown, 1000);
-}
-
-startTimer();
-
+	startTimer();
 
 	$reset.hide();
 	$scores.hide();
+
+	function countDown() {
+	  if (seconds > 0){
+	    var $theTimer = $('#timer');
+	    seconds--;
+	    $theTimer.html("Time: " + seconds);
+	  } 
+		else {
+  		seconds === 0
+  		loser();
+	  }  
+	}
+
+	function startTimer() {
+	  setInterval(countDown, 1000);
+	}
 	// start the game
 	$startGame1.click(function(event) {
   counter = 0;
@@ -52,7 +54,7 @@ startTimer();
 
 	});
 
-
+	// if statement to allow matching the grids
 	$('#grids').on('click', 'div', function(event) {
 		if (!$(this).hasClass('match')) {
 			$(this).addClass('selected');
@@ -77,10 +79,12 @@ startTimer();
 	// creating a new board using the shuffle function
 	function createNewBoard () {
 		shuffle(arrayOfImages);
+
 	  	for (var i = 0; i < arrayOfImages.length; i++) {
         output = "<div id=box" + i + "><img src='" + arrayOfImages[i] + "'/></div>"
         $grids.append(output);
     	}
+
 	    $('div img').hide();
   	} 
   	// show the box
@@ -114,24 +118,43 @@ startTimer();
   			}  		
     	}
     }
+
+  // when the timer runs out function
+  function loser() {
+
+  	setTimeout(function() {
+			var $scores = $('#scores');
+			$scores.fadeOut();
+  			$('#grids div').fadeOut();			
+  		}, 500);
+  	
+  	setTimeout(function () {
+			var loseMessage = 
+			'<p class="losingMessage"><strong>GAME OVER!</strong></p><p>Time ran out.</p>' //this is to add a message in html
+			$('#scenario').fadeIn();
+			$('#startGame1').html('<a class="link" href="index.html">Play again?</a>'); // change the button on html
+			$('.rules').html(loseMessage).addClass('losingMessage');
+		}, 1000);
+  }  
+
   // when the user wins   
-	function winner () {
-		
-		setTimeout(function(){
+	function winner() {
+		var $theTimer = $('#timer');
+
+		setTimeout(function() {
 			var $scores = $('#scores');
 			$scores.fadeOut();
   			$('#grids div').fadeOut();			
   		}, 2000);
-  	setTimeout(function (){
+  	
+  	setTimeout(function () {
 			var winMessage = 
-			'<p class="winningMessage"><strong>Congratulations!</strong></p><p>You completed this in ' + counter + ' clicks.</p>'
+			'<p class="winningMessage"><strong>Congratulations!</strong></p><p>You completed this in ' + counter + ' clicks.</p>' //this is to add a message in html
 			$('#scenario').fadeIn();
 			$('#startGame1').html('<a class="link" href="index.html">Play again?</a>');
-			$('.rules').html
-			(winMessage).addClass('winningMessage');
+			$('.rules').html(winMessage).addClass('winningMessage');
 		}, 3000);		
 	}			
-
 
 });
 
