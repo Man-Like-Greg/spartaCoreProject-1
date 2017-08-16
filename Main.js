@@ -48,7 +48,9 @@ $(function () {
 
 		$leaderBoard.click(function(event) {
 			$scenario.slideUp();
-			$('#grids').html(" who is in the lead");
+			$reset.show();
+			$('#grids').html("");
+			leadBoard();
 		})
 
 	// if statement to allow matching the grids
@@ -140,6 +142,12 @@ $(function () {
 			}  		
   	}
   }
+  // leader board function
+  function leadBoard() {
+
+  	
+  }
+
 
   // when the timer runs out function
   function loser() {

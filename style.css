@@ -75,6 +75,10 @@ h3 {
   margin-right: 700px;
 }
 
+#myForm {
+	text-align: center;
+}
+
 #leaderBoard {
   background-color: orange;
   border-radius: 10px;

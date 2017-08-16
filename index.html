@@ -16,30 +16,35 @@
   </header>
   <div id="scenario" class="base">
     <div class="rules">
-    <h3> Instructions </h3>
+      <h3> Instructions </h3>
       <p>Welcome brainiacts, this game is set out to test how your short term memory aloneside having fun.</p>
       <p>Click on the which catogory you want the game to be on and click on the boxes to uncover the fun; find matching pairs in order to win the game and train your mind. </p>
       <p>Play this game once a day and there is a percentage your wont forget the girl or boy you met last week</p>
-    <div id="leaderBoard" class="link">Leader Board</div>
+      <form action="" method="get" id="myForm">
+        <label>First Name:</label>
+        <input type="text" name="firstname" id="firstname">
+        <input type="submit" value="Submit name">
+      </form>
+      <div id="leaderBoard" class="link">Leader Board</div>
     </div>
       <div id="startGame1" class="link">Football Players</div>
   </div>
   <div id ="memoryBoard">
-  <span class="button">
-    <a id="reset" class="link" href="index.html">X</a>
-  </span>
-  <span id="scores">
     <span class="button">
-      <span id="counter">0</span> Clicks
+      <a id="reset" class="link" href="index.html">X</a>
     </span>
-    <span class="button">
-      <span id="timer">Timer</span>
+    <span id="scores">
+      <span class="button">
+        <span id="counter">0</span> Clicks
+      </span>
+      <span class="button">
+        <span id="timer">Timer</span>
+      </span>
+      <span class="button">
+        <span id="paired">Matched:</span>
+      </span>
     </span>
-    <span class="button">
-      <span id="paired">Matched:</span>
-    </span>
-  </span>
-  <div id="grids"></div>
+    <div id="grids"></div>
   </div>
 </body>
 </html>
