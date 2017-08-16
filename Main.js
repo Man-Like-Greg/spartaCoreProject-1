@@ -2,6 +2,10 @@ $(function () {
 	var arrayOfImages = ['images/Thierry-Henry.jpg','images/lionel-messi.jpg',
 	'images/Thierry-Henry.jpg','images/lionel-messi.jpg','images/david.jpg',
 	'images/ronaldo.jpg','images/david.jpg','images/ronaldo.jpg','images/Minionspic.jpeg'];
+
+	var arrayOfImages2 = ['images/Thierry-Henry.jpg','images/lionel-messi.jpg',
+	'images/Thierry-Henry.jpg','images/lionel-messi.jpg','images/david.jpg',
+	'images/ronaldo.jpg','images/david.jpg','images/ronaldo.jpg','images/Minionspic.jpeg'];
 	// find reset
 	var $reset = $('#reset')
 	// find the memory board
@@ -16,6 +20,10 @@ $(function () {
 	var $selected = $('.selected');
 	// find the first game selection
 	var $startGame1 = $('#startGame1');
+	// find the second game selection
+	var $startGame2 = $('#startGame2');
+	// find the third game selection
+	var $startGame3 = $('#startGame3');
 	// find the introduction 
 	var $scenario = $('#scenario');
 	// find paired
@@ -30,6 +38,7 @@ $(function () {
 
 	$reset.hide();
 	$scores.hide();
+	$memoryBoard.hide();
 
 
 	function setUpEventListeners() {
@@ -40,6 +49,33 @@ $(function () {
 			$scenario.slideUp();
 			$scores.show();
 			$reset.show();
+			$memoryBoard.show();
+
+			$('#grids').html("");
+			startTimer();
+			createNewBoard();
+		});
+
+		$startGame2.click(function(event) {
+		  counter = 0;
+		  $counter.html(counter);
+			$scenario.slideUp();
+			$scores.show();
+			$reset.show();
+			$memoryBoard.show();
+
+			$('#grids').html("");
+			startTimer();
+			createNewBoard();
+		});
+
+		$startGame3.click(function(event) {
+		  counter = 0;
+		  $counter.html(counter);
+			$scenario.slideUp();
+			$scores.show();
+			$reset.show();
+			$memoryBoard.show();
 
 			$('#grids').html("");
 			startTimer();
@@ -49,6 +85,7 @@ $(function () {
 		$leaderBoard.click(function(event) {
 			$scenario.slideUp();
 			$reset.show();
+			$memoryBoard.show();
 			$('#grids').html("");
 			leadBoard();
 		})
@@ -144,8 +181,11 @@ $(function () {
   }
   // leader board function
   function leadBoard() {
+  	// var $newDiv= $("#newDiv");
+	  // $newDiv.className="save";
+	  // $newDiv.html=text;
+   //  document.body.appendChild(newDiv);
 
-  	
   }
 
 

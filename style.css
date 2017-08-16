@@ -75,6 +75,30 @@ h3 {
   margin-right: 700px;
 }
 
+#startGame2 {
+	background-color: lightgreen;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 20px;
+  font-family: Arial;
+  text-align: center;
+  display: block;
+  margin-right: 700px;
+}
+
+#startGame3 {
+	background-color: lightpink;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 20px;
+  font-family: Arial;
+  text-align: center;
+  display: block;
+  margin-right: 700px;
+}
+
 #myForm {
 	text-align: center;
 }
