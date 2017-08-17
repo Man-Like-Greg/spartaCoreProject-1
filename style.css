@@ -1,31 +1,29 @@
+body {
+	background-image: url("http://2.bp.blogspot.com/-DuQZQT0o3qw/VVmUhFcjnHI/AAAAAAAADGE/PyL9cx-pHjE/s1600/intestinCerveau.jpg");
+	background-size: cover;
+}
 
 h1 {
 	text-align: center;
-	font-size: 40px;
+}
+
+h2 {
+	text-align: center;
 	font-family: Arial;
 }
 
 h3 {
 	text-align: center;
-	font-family: Arial;
 }
-
-/*.base{
-	height: 700px;
-	width: 700px;
-	background-color: white;
-	margin: 0 auto;
-	background-image: url(../images/.jpg);
-	background-repeat: no-repeat;
-	background-size: 700px;
-}*/
 
 .rules {
   background-color: lightblue;
   border-radius: 10px;
   cursor: pointer;
   padding: 10px 30px;
-  margin: 30px;
+  margin: 150px;
+  position: center;
+  box-shadow: 10px 6px 10px white;
 }
 
 .rules p {
@@ -36,16 +34,16 @@ h3 {
 }
 
 #memoryBoard {
-	height: 800px;
-	width: 701px;
-	background-color: lightblue;
+	height: 900px;
+	width: 700px;
+	background-image: url("https://images6.alphacoders.com/426/426268.jpg");
+	background-repeat: no-repeat;
 	margin: 0 auto;
 }
 
 #grids{
-	height: 710px;
+	height: 600px;
 	width: 600px;
-	background-color: lightblue;
 	margin: 0 auto;
 }
 
@@ -53,8 +51,8 @@ h3 {
 	vertical-align: top;
 	background-color: white;
 	display: inline-block;
-	height: 150px;
-	width: 150px;
+	height: 160px;
+	width: 160px;
 	border: solid black 2px;
 	margin: 5px;
 	padding: 5px;
@@ -67,49 +65,10 @@ h3 {
 	background-color: lightblue;
   border-radius: 10px;
   cursor: pointer;
-  padding: 10px 30px;
-  margin: 20px;
   font-family: Arial;
-  text-align: center;
-  display: block;
-  margin-right: 700px;
-}
-
-#startGame2 {
-	background-color: lightgreen;
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 10px 30px;
-  margin: 20px;
-  font-family: Arial;
-  text-align: center;
-  display: block;
-  margin-right: 700px;
-}
-
-#startGame3 {
-	background-color: lightpink;
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 10px 30px;
-  margin: 20px;
-  font-family: Arial;
-  text-align: center;
-  display: block;
-  margin-right: 700px;
-}
-
-#myForm {
-	text-align: center;
-}
-
-#leaderBoard {
-  background-color: orange;
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 10px 30px;
-  text-align: center;
-  margin: 30px;
+  display: inline-block;
+  position: center;
+  box-shadow: 10px 6px 10px white;
 }
 
 #scores {
@@ -125,8 +84,9 @@ h3 {
 }
 
 #scores .button {
-  background-color: green;
+  background-color: orange;
   cursor: pointer;
+  border-radius: 10px;
   padding: 10px 30px;
   margin: 30px;
 }
@@ -137,6 +97,7 @@ h3 {
 
 .link {
 	text-decoration: none;
-	color: black;
+	color: orange;
 	font-size: 25px;
+	border-color: black;
 }
