@@ -12,29 +12,39 @@
 </head>
 <body>
   <header>
-    <h1> Test you memory skill </h1>
+    <h1><img class="title" src="TEST-YOUR-MEMORY.png"></h1>
   </header>
   <div id="scenario" class="base">
     <div class="rules">
+      <h2> Instructions </h2>
+      <p>Welcome brainiacts, this game is set out to test how your short term memory aloneside having fun.</p>
+      <h3>HOW TO PLAY:</h3>
+      <p>Click start to begin the game. There will be a 3 x 3 grid; click one box and match the image by clicking a second box. Complete the game within 60 seconds and you are a winner but if the minions find you, then its GAME OVER.</p>
+      <p><strong>LOOK OUT FOR THE MINIONS BEFORE THE TIME RUNS OUT</strong></p>
+      <p>Play this game once a day and there is a percentage your wont forget what you learnt last week</p>
     </div>
-      <div id="startGame1" class="link">Football Players</div>
+    <center>
+      <button id="startGame1" class="link">Start Game</button> 
+    </center>
   </div>
   <div id ="memoryBoard">
-  <span class="button">
-    <a id="reset" class="link" href="index.html">X</a>
-  </span>
-  <span id="scores">
     <span class="button">
-      <span id="counter">0</span> Clicks
+      <a id="reset" class="link" href="index.html">X</a>
     </span>
-    <span class="button">
-      <span id="timer">Timer</span>
+    <span id="scores">
+      <span class="button">
+        <span id="counter">0</span> Clicks
+      </span>
+      <span class="button">
+        <span id="timer">Timer</span>
+      </span>
+      <span class="button">
+        <span id="paired">Matched:</span>
+      </span>
     </span>
-    <span class="button">
-      <span id="paired">Matched:</span>
-    </span>
-  </span>
-  <div id="grids"></div>
+    <center>
+    <div id="grids"></div>
+    </center>
   </div>
 </body>
 </html>
