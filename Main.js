@@ -68,9 +68,11 @@ $(function () {
 	  } else {
 	  	// clear the inteval
 	  	clearInterval(inteval);
+
 	  	//set the seconds back to original
 	  	seconds = 60;
-  		loser();
+	  	loser();
+
 	  }  
 	}
 
