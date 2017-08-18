@@ -1,0 +1,103 @@
+body {
+	background-image: url("http://2.bp.blogspot.com/-DuQZQT0o3qw/VVmUhFcjnHI/AAAAAAAADGE/PyL9cx-pHjE/s1600/intestinCerveau.jpg");
+	background-size: cover;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+	font-family: Arial;
+}
+
+h3 {
+	text-align: center;
+}
+
+.rules {
+  background-color: lightblue;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 150px;
+  position: center;
+  box-shadow: 10px 6px 10px white;
+}
+
+.rules p {
+	padding: 20px 20px 0px 30px;
+  font-size: 16px;
+  font-family: Arial;
+  text-align: center;
+}
+
+#memoryBoard {
+	height: 900px;
+	width: 700px;
+	background-image: url("https://images6.alphacoders.com/426/426268.jpg");
+	background-repeat: no-repeat;
+	margin: 0 auto;
+}
+
+#grids{
+	height: 600px;
+	width: 600px;
+	margin: 0 auto;
+}
+
+#grids div {
+	vertical-align: top;
+	background-color: white;
+	display: inline-block;
+	height: 160px;
+	width: 160px;
+	border: solid black 2px;
+	margin: 5px;
+	padding: 5px;
+	background-size: 150px;
+	cursor: pointer;
+	box-shadow: 3px 3px 5px grey;
+}
+
+#startGame1 {
+	background-color: lightblue;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: Arial;
+  display: inline-block;
+  position: center;
+  box-shadow: 10px 6px 10px white;
+}
+
+#scores {
+  display: block;
+  margin: 100px;
+  text-align: center;
+}
+
+#span .button {
+	cursor: pointer;
+  padding: 10px 30px;
+  border: 10px;
+}
+
+#scores .button {
+  background-color: orange;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 30px;
+  margin: 30px;
+}
+
+.selected img {
+	opacity: 1; 
+}
+
+.link {
+	text-decoration: none;
+	color: orange;
+	font-size: 25px;
+	border-color: black;
+}
